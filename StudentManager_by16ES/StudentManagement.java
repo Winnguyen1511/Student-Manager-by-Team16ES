@@ -1,6 +1,8 @@
 package studentManager1;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Vector;
 
 import javax.swing.*;
@@ -67,7 +69,7 @@ public class StudentManagement extends Frame implements ActionListener
 {
 	Vector<Student> list = new Vector<Student>();
 	private Button b1,b2,b3,b4,b5,b6;
-	private MenuItem menuExit,menuNewFile, menuOpenFile;
+	private MenuItem menuExit,menuNewFile, menuOpenFile, menuSaveAs, menuSave;
 	private MenuItem menuHelp, menuAbout;
 	public void insertList(Student stu)
 	{
@@ -107,9 +109,17 @@ public class StudentManagement extends Frame implements ActionListener
 		  MenuFile.add(menuNewFile);
 		  menuNewFile.addActionListener(this);
 		  
-		  menuOpenFile = new MenuItem("Open File");
+		  menuOpenFile = new MenuItem("Open File..");
 		  MenuFile.add(menuOpenFile);
 		  menuOpenFile.addActionListener(this);
+		  
+		  menuSave = new MenuItem("Save");
+		  MenuFile.add(menuSave);
+		  menuSave.addActionListener(this);
+		  
+		  menuSaveAs = new MenuItem("Save As..");
+		  MenuFile.add(menuSaveAs);
+		  menuSaveAs.addActionListener(this);
 		  
 		  menuExit = new MenuItem("Exit");
 		  MenuFile.add(menuExit);
@@ -227,7 +237,25 @@ public class StudentManagement extends Frame implements ActionListener
 		}
 		else if(e.getSource() == menuOpenFile)
 		{
+			try {
+				new OpenFileInterface(this);
+			} catch ( IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		else if(e.getSource() == menuSave)
+		{
 			
+		}
+		else if(e.getSource() == menuSaveAs)
+		{
+			try {
+				new SaveAsInterface(this);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		else {
 			

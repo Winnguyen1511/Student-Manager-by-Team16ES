@@ -6,51 +6,7 @@ import java.util.Vector;
 import javax.swing.*;
 
 
-class ErrorMessage extends JFrame implements ActionListener{
-	private JButton okeBut; 
-	public ErrorMessage() {
-		// TODO Auto-generated constructor stub
-		super("Error");
-		Container con = this.getContentPane();
-		this.setLayout(new GridLayout(2, 1));
-		this.setSize(250, 100);
-		okeBut = new JButton("Ok");
-		okeBut.addActionListener(this);
-		JPanel 	pn1, pn2;
-		pn1 = new JPanel();
-		pn1.setLayout(new FlowLayout());
-		pn2 = new JPanel();
-		pn2.setLayout(new FlowLayout());
-		JTextField errorTxt = new JTextField("[ERROR] Can not find the Student !!!");
-		errorTxt.setEditable(false);
-		
-		pn1.add(errorTxt);
-		
-		pn2.add(okeBut);
-		con.add(pn1);
-		con.add(pn2,"South");
-//		this.pack();
-		this.setVisible(true);
-		this.show();
-		this.addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-				//super.windowClosing(arg0);
-				dispose();
-			}
-		});
-	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getSource() == okeBut )
-		{
-			dispose();
-		}
-	}
-	
-}
+
 public class SearchInterface extends JFrame implements ActionListener
 {
 	private JLabel 		inputLb, gradeLb;
@@ -146,10 +102,8 @@ public class SearchInterface extends JFrame implements ActionListener
 				new ViewInterface(tmp,count);
 			else
 			{
-				new ErrorMessage();
+				new ErrorMessage("[ERROR] Can not find the Student !!!");
 			}
-		}
-		
+		}	
 	}
-	
 }

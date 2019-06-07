@@ -3,8 +3,9 @@ package studentManager1;
 public class Student //implements Comparable<Student>
 {
 
-private int ID;
+public final static int  NUMBER_OF_FIELD = 6;
 private String name;
+private int ID;
 private float math, physic, chem;
 private float aver;
 
