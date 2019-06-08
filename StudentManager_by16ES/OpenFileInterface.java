@@ -108,6 +108,7 @@ class OpenExcelFile
 			row_counter++;
 		}
 		master.list = vec;
+		inputStream.close();
 	}
 }
 public class OpenFileInterface extends JFrame 

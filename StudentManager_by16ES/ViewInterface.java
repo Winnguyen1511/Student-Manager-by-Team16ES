@@ -105,6 +105,11 @@ public class ViewInterface extends JFrame
 	public ViewInterface(Vector<Student> list) {
 		// TODO Auto-generated constructor stub
 		super("View List");
+		
+		JPanel sp = new JPanel();
+		JScrollPane scroll;
+		Container con = this.getContentPane();
+		sp.setLayout(new GridLayout(list.size()+1,7));
 		Student sts[] = new Student[list.size()];
 		Enumeration vEnum = list.elements();
 		int index = 0;
@@ -115,7 +120,7 @@ public class ViewInterface extends JFrame
 		}
 		//------------Chổ này chú ý cmm vào :D----------------//
 		//------------Nhớ + 1 vào ahihi-----------------------//
-		this.setLayout(new GridLayout(list.size()+1,7));
+//		this.setLayout(new GridLayout(list.size()+1,7));
 		numLb = new Label("Num");
 		nameLb = new Label("Name");
 		idLb = new Label("ID");
@@ -123,14 +128,20 @@ public class ViewInterface extends JFrame
 		physLb = new Label("Physics");
 		chemLb = new Label("Chemistry");
 		averLb = new Label("Average");
-		this.add(numLb);
-		this.add(nameLb);
-		this.add(idLb);
-		this.add(mathLb);
-		this.add(physLb);
-		this.add(chemLb);
-		this.add(averLb);
-
+//		this.add(numLb);
+//		this.add(nameLb);
+//		this.add(idLb);
+//		this.add(mathLb);
+//		this.add(physLb);
+//		this.add(chemLb);
+//		this.add(averLb);
+		sp.add(numLb);
+		sp.add(nameLb);
+		sp.add(idLb);
+		sp.add(mathLb);
+		sp.add(physLb);
+		sp.add(chemLb);
+		sp.add(averLb);
 		numTxt = new JTextField[list.size()];
 		for(int i = 0; i < list.size() ; i++)
 		{
@@ -184,16 +195,32 @@ public class ViewInterface extends JFrame
 		}
 		for(int i = 0 ; i < list.size(); i ++)
 		{
-			this.add(numTxt[i]);
-			this.add(nameTxt[i]);
-			this.add(idTxt[i]);
-			this.add(mathTxt[i]);
-			this.add(phyTxt[i]);
-			this.add(chemTxt[i]);
-			this.add(averTxt[i]);
+//			this.add(numTxt[i]);
+//			this.add(nameTxt[i]);
+//			this.add(idTxt[i]);
+//			this.add(mathTxt[i]);
+//			this.add(phyTxt[i]);
+//			this.add(chemTxt[i]);
+//			this.add(averTxt[i]);
+			sp.add(numTxt[i]);
+			sp.add(nameTxt[i]);
+			sp.add(idTxt[i]);
+			sp.add(mathTxt[i]);
+			sp.add(phyTxt[i]);
+			sp.add(chemTxt[i]);
+			sp.add(averTxt[i]);
 		}
+//		scroll.add(sp);
+//		this.add(scroll);
+		scroll = new JScrollPane(sp);
+		scroll.setLayout(new ScrollPaneLayout());
+		scroll.setPreferredSize(new Dimension(670,370));
+		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+//		scroll.add(sp);
+		con.add(scroll);
 		this.pack();
-		this.setResizable(false);
+//		this.setResizable(false);
 		this.show();
 		this.addWindowListener( new WindowAdapter() {
 			@Override

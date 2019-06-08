@@ -268,7 +268,7 @@ public class StudentManagement extends Frame implements ActionListener
 		}
 		else if(e.getSource() == menuAbout)
 		{
-			
+			new AboutPanel();
 		}
 		else
 		{
