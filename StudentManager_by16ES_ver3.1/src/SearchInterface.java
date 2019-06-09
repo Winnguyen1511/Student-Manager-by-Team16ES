@@ -32,7 +32,7 @@ public class SearchInterface extends JFrame implements ActionListener
 		namePanel.add(inputTxt);
 		JPanel gradePanel = new JPanel();
 		gradePanel.setLayout(new GridLayout(1,2));
-		gradeLb = new JLabel("Grade: ");
+		gradeLb = new JLabel("Average: ");
 		gradeTxt = new JTextField();
 		gradeTxt.setText("0");
 		gradeTxt.setEditable(true);
@@ -40,7 +40,7 @@ public class SearchInterface extends JFrame implements ActionListener
 		gradePanel.add(gradeTxt);
 		
 		
-		enterBut = new JButton("Average");
+		enterBut = new JButton("Enter");
 		enterBut.addActionListener(this);
 		JPanel submitPanel = new JPanel();
 		submitPanel.setLayout(new FlowLayout());
