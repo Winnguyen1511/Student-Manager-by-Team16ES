@@ -79,7 +79,7 @@ public class AboutPanel extends JFrame implements ActionListener
 		contentPane.add(panel_1, BorderLayout.WEST);
 		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("E:\\tai_lieu\\PROGRAMMING_C++\\OOP\\JAVA\\cheatingES.png"));
+		lblNewLabel.setIcon(new ImageIcon(AboutPanel.class.getResource("/imgPack1/cheatingES.png")));
 		panel_1.add(lblNewLabel);
 		
 		panel_2 = new JPanel();
@@ -88,22 +88,23 @@ public class AboutPanel extends JFrame implements ActionListener
 		panel_2.setLayout(null);
 		
 		JTextPane txtpnStudentManagerVersion = new JTextPane();
+		txtpnStudentManagerVersion.setEditable(false);
 		txtpnStudentManagerVersion.setText("Student Manager \r\n\r\nVersion 3.1 (2019)\r\nBuild by Team16ES\r\nSenior Contributor: Nguyen Huynh Dang Khoa (Win Nguyen)\r\n\r\n(c)Copyright Team3_16ES contributors. All rights reserved. All infomation about the 16ES logo and Student Manager can be found at https://www.facebook.com/win.nguyen.5680.\r\n\r\nNote that this product is open source.");
 		txtpnStudentManagerVersion.setBounds(0, 0, 574, 171);
 		panel_2.add(txtpnStudentManagerVersion);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("E:\\tai_lieu\\PROGRAMMING_C++\\OOP\\JAVA\\win.png"));
+		lblNewLabel_1.setIcon(new ImageIcon(AboutPanel.class.getResource("/imgPack1/win.png")));
 		lblNewLabel_1.setBounds(0, 170, 77, 72);
 		panel_2.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("E:\\tai_lieu\\PROGRAMMING_C++\\OOP\\JAVA\\hien.png"));
+		lblNewLabel_2.setIcon(new ImageIcon(AboutPanel.class.getResource("/imgPack1/hien.png")));
 		lblNewLabel_2.setBounds(74, 170, 76, 72);
 		panel_2.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon("E:\\tai_lieu\\PROGRAMMING_C++\\OOP\\JAVA\\linh.png"));
+		lblNewLabel_3.setIcon(new ImageIcon(AboutPanel.class.getResource("/imgPack1/linh.png")));
 		lblNewLabel_3.setBounds(149, 170, 77, 72);
 		panel_2.add(lblNewLabel_3);
 		

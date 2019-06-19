@@ -49,6 +49,7 @@ public class SearchInterface extends JFrame implements ActionListener
 		con.add(gradePanel);
 		con.add(submitPanel, "South");
 //		this.pack();
+//		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 		this.addWindowListener(new WindowAdapter() {
 			@Override
@@ -69,18 +70,13 @@ public class SearchInterface extends JFrame implements ActionListener
 			searchGrade = Float.valueOf(gradeTxt.getText());
 			for(Student stu : tmpList)
 			{
-//				if(stu.getName().equalsIgnoreCase(searchName))
-//				{
-//					//tmp[count++] = stu;
-//						tmp[count++] = stu;
-//				}
+
 				float searchGradeRound = Math.round((searchGrade*10)/10);
 				float averGradeRound = Math.round((stu.getAver()*10)/10);
 				if (!searchName.equals("") && searchGrade == 0)
 				{
 					if(stu.getName().equalsIgnoreCase(searchName))
 					{
-						//tmp[count++] = stu;
 							tmp[count++] = stu;
 					}
 				}

@@ -34,6 +34,7 @@ import javax.swing.JLabel;
 
 import java.awt.FlowLayout;
 import javax.swing.UIManager;
+import java.awt.Toolkit;
 
 public class ApplicationWin implements ActionListener
 {	
@@ -42,6 +43,7 @@ public class ApplicationWin implements ActionListener
 	private class waitClass extends Thread
 	{
 		public void run() {
+			saveStatus = false;
 			workspaceFrame.getContentPane().removeAll();
 //			workspaceFrame.getContentPane()
 			temp = new EditInterface(master);
@@ -54,7 +56,7 @@ public class ApplicationWin implements ActionListener
 	{
 		private JFrame frame;
 		private String username = "khoanguyen1507dn@gmail.com";
-		private String password = "khongcopass123";
+		private String password = "khoanguyen1511dn..";
 		JLabel userLb, passLb;
 		JTextField userTxt;
 		JPasswordField passTxt;
@@ -96,7 +98,7 @@ public class ApplicationWin implements ActionListener
 		@Override
 		public void run() {
 			// TODO Auto-generated method stub
-			frame = new JFrame();
+			frame = new JFrame("Login");
 			frame.setSize(300, 140);
 			userLb = new JLabel("Username:");
 			userTxt = new JTextField();
@@ -150,6 +152,7 @@ public class ApplicationWin implements ActionListener
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 					ApplicationWin window = new ApplicationWin(new StudentManagement());
 					window.frmStudentManagerbyTeames.setVisible(true);
 				} catch (Exception e) {
@@ -242,6 +245,7 @@ public class ApplicationWin implements ActionListener
 		
 		JMenuItem mntmEdit = new JMenuItem("Edit");
 		mnTools.add(mntmEdit);
+		mntmEdit.addActionListener(this);
 		mntmSearchStudent.addActionListener(this);
 		
 		JMenu mnHelp = new JMenu("Help");
@@ -286,20 +290,28 @@ public class ApplicationWin implements ActionListener
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(btnViewList, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-						.addComponent(btnInsert, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-						.addComponent(btnSortAlphabet, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-						.addComponent(btnSearch, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
-					.addContainerGap())
-				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(btnSort, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-					.addContainerGap())
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(btnEdit, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-						.addComponent(btnExitProgram, GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))
-					.addGap(12))
+					.addContainerGap()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnInsert, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+							.addContainerGap())
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnSort, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+							.addContainerGap())
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnViewList, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+							.addContainerGap())
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnSortAlphabet, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+							.addContainerGap())
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnSearch, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+							.addContainerGap())
+						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(btnExitProgram, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+								.addComponent(btnEdit, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
+							.addContainerGap())))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -323,6 +335,7 @@ public class ApplicationWin implements ActionListener
 		toolFrame.getContentPane().setLayout(groupLayout);
 		
 		workspaceFrame = new JInternalFrame("Workspace");
+		workspaceFrame.setResizable(true);
 		workspaceFrame.setBorder(UIManager.getBorder("InternalFrame.border"));
 		workspaceFrame.setClosable(true);
 		workspaceFrame.setVisible(true);
@@ -354,6 +367,9 @@ public class ApplicationWin implements ActionListener
 		{	
 		if(e.getActionCommand().equalsIgnoreCase("New.."))
 		{
+			master.list = new Vector<Student>();
+			workspaceFrame.getContentPane().removeAll();
+			workspaceFrame.repaint();
 			
 		}
 		else if(e.getActionCommand().equalsIgnoreCase("Open File.."))
@@ -456,6 +472,7 @@ public class ApplicationWin implements ActionListener
 		}
 		else if(e.getActionCommand().equalsIgnoreCase("Edit"))
 		{
+			
 			loginBlock = new loginInterface();
 			loginBlock.start();
 			waitblock = new waitClass();

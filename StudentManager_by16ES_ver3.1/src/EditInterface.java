@@ -264,7 +264,7 @@ class UpdateForm extends JFrame implements ActionListener
 		super("Edit Form");
 		master = slave;
 		Container con = this.getContentPane();
-		con.setLayout(new GridLayout(7,2));
+		con.setLayout(new GridLayout(6,2));
 		nameLb = new JLabel("Name:");
 		nameTxt = new JTextField(name);
 		idLb = new JLabel("ID:");
